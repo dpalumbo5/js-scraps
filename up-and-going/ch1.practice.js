@@ -1,7 +1,7 @@
 const TAX_RATE = .1025
 const PHONE_PRICE = 100.00
 const ACCESSORY_PRICE = 9.99
-const SPENDING_THRESHOLD = 500.00
+const SPENDING_THRESHOLD = 99.00
 // const SPENDING_THRESHOLD = prompt("what's your purchase limit?")
 
 var bank_balance = 1200.32
@@ -22,7 +22,7 @@ function buysies(amount){
 //keep buying until bank balance is 0
 //if threshold is higher than purchase amount buy the accessory
  while(bank_balance > amount){
-  amount = PHONE_PRICE;
+  amount = calculatePriceWithTax(PHONE_PRICE);
   
   if (SPENDING_THRESHOLD > amount) {
     amount = calculatePriceWithTax(amount + ACCESSORY_PRICE)
