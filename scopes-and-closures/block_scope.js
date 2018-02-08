@@ -1,5 +1,6 @@
 for (var i=0; i<=30; i++) {
   console.log('a year goes by')
+  var dan_name = 'Dan'
   console.log(i)
 }
 
@@ -11,3 +12,4 @@ for (var i=i; i<=20; i++) { console.log('a year goes by for person 2'); console.
 
 console.log(i)
 console.log('happy 20th birthday person 2!')
+console.log(dan_name)
