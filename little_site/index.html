@@ -7,8 +7,8 @@
 </body>
 <script>
   function ourSetTimeout(func, time) {
-    sleep(1000)
-    console.log('duh')
+    sleep(time)
+    return func()
   }
 
   function littleFunc() {
