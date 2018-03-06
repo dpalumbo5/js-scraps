@@ -8,7 +8,7 @@ function minimum(a,b) {
 }
 console.log(minimum(3,19))
 
-// //_____________________________________
+// _____________________________________
 
 // function isEven(n){
 //   // n needs to be a whole, positive number
@@ -24,12 +24,30 @@ console.log(minimum(3,19))
 //   }
 //   else {
 //     function isIt(n){
-//       //is n % 2 == 0 true? return even
-//       //How do I do it with recursion?
+//       //keep subtracting 2 until it gets to 1 or 0?
+//       l
 // }
 //   console.log(isEven(-2));
 //   console.log(isEven(2.6));
 
+function isEven(n){
+
+  if (n === 0) {
+   console.log("Truuuuuu");
+   }
+  else if (n === 1) {
+   console.log("naahhhhhh");
+   }
+  else {
+    return isEven(n-2)
+  }
+}
+isEven(50);
+// → true
+isEven(75);
+// → false
+isEven(-1);
+// → ??
 
 //______________________________________
 

@@ -8,11 +8,11 @@
 //#######
 //for (let number = 0; number <= 12; number = number + 2)
 
-for (let i = '#'; i.length < 8; i++){
+for (let i = '#'; i.length < '8'; i += '#'){
   console.log(i);
 }
 
-//console.log numbers from 1 to 100, for numbers divisible by 3 print fizz, for numbers divisible by 5 print buzz, for numbers divisible by both print fizzbuzz
+// //console.log numbers from 1 to 100, for numbers divisible by 3 print fizz, for numbers divisible by 5 print buzz, for numbers divisible by both print fizzbuzz
 
 for (let i = 1; i < 101; i ++) {
   if(i % 3 == 0 && i % 5 == 0){
@@ -40,8 +40,28 @@ for (let i = 1; i < 101; i ++) {
 //# # # # 
 //when you have that, define a binding size = 8, and change the program so that it works for any size outputting a grid of the given width and height
 
-let counter = 0 
-if counter % 2 == 0 {
-  console.log("#");
+function dansRepeat(str,mult){
+  let thingy = ` `
+  if(!(typeof(str) === `string`)){
+    console.log("no");
+  }else{
+    let i=1;
+     while (i < mult + 1){ 
+       i++
+      (thingy += str);
+    }
+    console.log(thingy);
+  }
 }
 
+var x = 10
+for (let row = 1; row < x+1; row ++) {
+  if (row % 2 == 0){
+    //console.log(`# `.repeat(.5*x));
+    dansRepeat(`# `,(.5*x));
+  }
+  else {
+    // console.log(` #`.repeat(.5*x));
+    dansRepeat(` #`,(.5*x));
+  }
+}

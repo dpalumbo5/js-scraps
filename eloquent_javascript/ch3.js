@@ -1,4 +1,15 @@
-//IDGI
+// function power(base, exponent) {
+//   if (exponent == 0 ) {
+//     return 1;
+//   } else {
+//     return base * power(base, exponent - 1);
+//   }
+// }
+
+// console.log(power(4, 4));
+//I think this keeps going through until exponent = 0 and returns 1
+//(4,3) would do 4*(4,2)
+//____________________________________________________
 
 function findSolution(target) {
   function find(current, history) {
@@ -14,7 +25,7 @@ function findSolution(target) {
   return find(1, "1");
 }
 
-console.log(findSolution(56));
+console.log(findSolution(72));
 //
 // The inner function find does the actual recursing. It takes two arguments, the current number and a string that records how we reached this number. If it finds a solution, it returns a string that shows how to get to the target. If no solution can be found starting from this number, it returns null.
 // find(1, "1")
