@@ -1,4 +1,4 @@
-export { checkIt }
+// export { checkIt }
 
 function checkIt(ary1, ary2){
 
@@ -15,7 +15,7 @@ function checkIt(ary1, ary2){
       break;
     }
   }
-  console.log(`crushed it`)
+  console.log(`ary1: ${ary1}, ary2: ${ary2}`)
 }
 
 checkIt([4,0,2,7],[4,5,2,7])
