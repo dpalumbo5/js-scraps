@@ -1,4 +1,3 @@
-// import { checkIt } from 'Users/dan/github/js-scraps/checkIt.js'
 var checkIt = require ('../checkIt.js')
 
 checkIt([3,4,5,6],[3,4,5,7])
@@ -9,13 +8,22 @@ checkIt([3,4,5,6],[3,4,5,7])
   //loop needs to go to end and return the array
   function rangeFunk(x,y,z){
     ary =[];
-    for (let i = x; i <= y; i = i + z || i++){
+    if (z == undefined){
+    for (let i = x; i <= y; i++){
       ary.push(i);
+      }
     }
-      console.log(ary);
+
+    else if(!(z == undefined)){
+    for (let i = x; i <= y; i = i + z){
+      ary.push(i);
+      }
+    }
+    return (ary);
   }
-  rangeFunk(1,10);
-  rangeFunk(1,10,2);
+  
+ console.log(rangeFunk(4,10));
+ console.log(rangeFunk(1,10,2));
 
   function sumFunk(ary){
     let sum = 0;
@@ -76,5 +84,50 @@ checkIt([3,4,5,6],[3,4,5,7])
   //   }
   // }
 // };
+//
+// Building up a list is easier when done back to front. So arrayToList could iterate over the array backwards (see previous exercise) and, for each element, add an object to the list. You can use a local binding to hold the part of the list that was built so far and use an assignment like list = {value: X, rest: list} to add an element.
 
-// function arrayToList
+//let object = {prop: value, prop, value}
+//
+// function arrayToList(array){
+// for each iteration of array create an object
+// first prop is value: i
+// second prop is rest: <new object>
+//  value: i + 1
+//  rest: next object
+//    value i + 1
+//    rest: null
+
+function arrayToList(ary){
+  let list = null;
+  for (let i = ary.length - 1; i >= 0; i--){
+    list = {value: ary[i], rest: list};
+  }
+  return list
+}
+
+console.log(arrayToList([5,7,9]))
+
+function listToArray(list){
+  let array = [];
+  for (let boop = list; boop; boop = boop.rest){
+  array.push(boop.value);
+  }
+  return array
+}
+
+console.log(listToArray({ value: 5, rest: { value: 7, rest: { value: 9, rest: null } } }))
+
+function prepend(value, list) {
+  return {value, rest: list};
+}
+
+function nth(list, n) {
+  if (!list) return undefined;
+  //if n is greater than list, eventually hits null and returns undefined
+  else if (n == 0) return list.value;
+  //list is the first value rest set
+  else return nth(list.rest, n - 1);
+  //this is where it loops through each list further on
+}
+console.log(nth(({ value: 5, rest: { value: 7, rest: { value: 9, rest: null } } }), 0))
