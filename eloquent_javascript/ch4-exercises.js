@@ -131,3 +131,66 @@ function nth(list, n) {
   //this is where it loops through each list further on
 }
 console.log(nth(({ value: 5, rest: { value: 7, rest: { value: 9, rest: null } } }), 0))
+
+
+function deepEqual(obj1, obj2){
+  if (typeof(obj1) == typeof(obj2)){
+
+    if (Object.keys(obj1).length === Object.keys(obj2).length
+        && Object.values(obj1).length === Object.values(obj2).length){
+
+      for (let i = 0; i < Object.keys(obj2).length; i++){
+        console.log('1:', Object.values(obj1)[i]);
+        console.log('2:', Object.values(obj2)[i]);
+
+        if(Object.keys(obj1)[i] === Object.keys(obj2)[i] &&
+          Object.values(obj1)[i] === Object.values(obj2)[i]){
+          console.log(`yup`)}
+
+        else { console.log(`nah b`)
+          return Object.keys(obj1) && Object.keys(obj2)
+        }
+      }
+    }
+    else {console.log("values are not samesies");}
+  }
+  else console.log("need two objects");
+  console.log(`truuuuuu`)
+}
+
+
+
+obj = {here: {is: "an"}, object: 2};
+deepEqual(obj, obj);
+// → true
+deepEqual(obj, {here: 1, object: 2});
+// → false
+deepEqual(obj, {here: {is: "an"}, object: 2});
+// → true FALSE but why
+
+//the man the myth the legends code
+//https://github.com/marijnh/Eloquent-JavaScript/blob/master/code/solutions/04_4_deep_comparison.js
+function deeperEqual(a, b) {
+  if (a === b) return true;
+  
+  if (a == null || typeof a != "object" ||
+      b == null || typeof b != "object") return false;
+
+  let keysA = Object.keys(a), keysB = Object.keys(b);
+
+  if (keysA.length != keysB.length) return false;
+
+  for (let key of keysA) {
+    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+  }
+
+  return true;
+}
+
+obj = {here: {is: "an"}, object: 2};
+deeperEqual(obj, obj);
+// → true
+deeperEqual(obj, {here: 1, object: 2});
+// → false
+deeperEqual(obj, {here: {is: "an"}, object: 2});
+// → true FALSE but why
